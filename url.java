@@ -3,10 +3,12 @@ import java.io.*;
 import java.lang.*;
 import java.util.Stack;
 
+
 public class url   {
     public static void main(String[] args)  throws Exception{
          int j =0;
-         int counter = 0;
+         //int counter = 0;
+         String domain = "";
         URL aUrl = new URL("http://www.mail.yahoo.com");
         String str = aUrl.getHost();
 
@@ -22,15 +24,22 @@ public class url   {
                     
 
             }
-                Stack<Character> stack = new Stack<Character>();
+                Stack<Character> st = new Stack<Character>();
         while (str.charAt(j) != '.')
             {
-                stack.push(str.charAt(j));
-                counter++;
+                st.push(str.charAt(j));
+                //counter++;
                 j--;
-            }
+                
 
-            System.out.println(stack);
+            
+            }
+            while (!st.empty())
+                {
+                    domain = domain + st.pop();
+                }
+
+            System.out.println(domain);
        
 
     }
